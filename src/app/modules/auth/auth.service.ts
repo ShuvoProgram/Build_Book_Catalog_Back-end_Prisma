@@ -62,7 +62,7 @@ const signin = async (data: User): Promise<{ access_token: string }> => {
     }
 
     const access_token = jwtHelpers.createToken({
-      id: existingUser.id,
+      userId: existingUser.id,
       role: existingUser.role,
     });
 
