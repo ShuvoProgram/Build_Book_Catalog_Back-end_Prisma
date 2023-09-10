@@ -2,40 +2,30 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 generator client {
-    provider = "prisma-client-js"
+  provider = "prisma-client-js"
 }
 
 datasource db {
-    provider = "postgresql"
-    url      = env("DATABASE_URL")
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
 model User {
-    id            String         @id @default(uuid())
-    name          String
-    email         String         @unique
-    password      String
-    role          Role
-    contactNo     String
-    address       String
-    profileImg    String
-    refreshTokens RefreshToken[]
-    createdAt     DateTime       @default(now())
-    updatedAt     DateTime       @updatedAt
+  id         String   @id @default(uuid())
+  name       String
+  email      String
+  password   String
+  role       Role
+  contactNo  String
+  address    String
+  profileImg String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
 
-    @@map("users")
-}
-
-model RefreshToken {
-    id          String   @id @default(uuid())
-    hashedToken String
-    userId      String
-    User        User     @relation(fields: [userId], references: [id])
-    createdAt   DateTime @default(now())
-    updatedAt   DateTime @updatedAt
+  @@map("users")
 }
 
 enum Role {
-    admin
-    customer
+  admin
+  customer
 }

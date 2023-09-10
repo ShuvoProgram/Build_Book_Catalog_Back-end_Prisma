@@ -6,19 +6,19 @@
     "auditLog": "C:\\Next Level Development\\Mission-7\\Book_Catalog_Prisma_Assignment-2\\logs\\winston\\errors\\.2979e3056df307955ad5797c8952f48876b9d7ce-audit.json",
     "files": [
         {
-            "date": 1694326923183,
-            "name": "C:\\Next Level Development\\Mission-7\\Book_Catalog_Prisma_Assignment-2\\logs\\winston\\errors\\phu-2023-10-09-12-error.log",
-            "hash": "d3909cff2b55c8c47c406d116f5df21ce4a4c666ed316bae7a1a94b986af904e"
+            "date": 1694342996505,
+            "name": "C:\\Next Level Development\\Mission-7\\Book_Catalog_Prisma_Assignment-2\\logs\\winston\\errors\\phu-2023-10-09-16-error.log",
+            "hash": "0bad3f1d1e0a78e6796b7d4b0b9f1dc21815ec3b8f8fbbd55602362b7291bb77"
         },
         {
-            "date": 1694330086076,
-            "name": "C:\\Next Level Development\\Mission-7\\Book_Catalog_Prisma_Assignment-2\\logs\\winston\\errors\\phu-2023-10-09-13-error.log",
-            "hash": "af7f5058570034676a51946abbbdb69d543993cf88e428c4def295ab8456e738"
+            "date": 1694343609010,
+            "name": "C:\\Next Level Development\\Mission-7\\Book_Catalog_Prisma_Assignment-2\\logs\\winston\\errors\\phu-2023-10-09-17-error.log",
+            "hash": "c2cdd28a91b49fac61392bd3d69b0b2c256f201e54a7159a28f01a900bfe1483"
         },
         {
-            "date": 1694337283614,
-            "name": "C:\\Next Level Development\\Mission-7\\Book_Catalog_Prisma_Assignment-2\\logs\\winston\\errors\\phu-2023-10-09-15-error.log",
-            "hash": "ffd6afa570ff2cce18dd074d19fa784ca291b10fa433f6658628856906a70754"
+            "date": 1694347221026,
+            "name": "C:\\Next Level Development\\Mission-7\\Book_Catalog_Prisma_Assignment-2\\logs\\winston\\errors\\phu-2023-10-09-18-error.log",
+            "hash": "9a9f8098eb6a4ea739ff1e9f5782e14034e2da6b6569dfa860fee1b5f051fc07"
         }
     ],
     "hashType": "sha256"
