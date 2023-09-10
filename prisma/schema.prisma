@@ -9,3 +9,33 @@ datasource db {
     provider = "postgresql"
     url      = env("DATABASE_URL")
 }
+
+model User {
+    id            String         @id @default(uuid())
+    name          String
+    email         String         @unique
+    password      String
+    role          Role
+    contactNo     String
+    address       String
+    profileImg    String
+    refreshTokens RefreshToken[]
+    createdAt     DateTime       @default(now())
+    updatedAt     DateTime       @updatedAt
+
+    @@map("users")
+}
+
+model RefreshToken {
+    id          String   @id @default(uuid())
+    hashedToken String
+    userId      String
+    User        User     @relation(fields: [userId], references: [id])
+    createdAt   DateTime @default(now())
+    updatedAt   DateTime @updatedAt
+}
+
+enum Role {
+    admin
+    customer
+}
