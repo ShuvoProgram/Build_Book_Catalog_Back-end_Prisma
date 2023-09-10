@@ -8,6 +8,15 @@ const createCategories = z.object({
   })
 })
 
+const updateCategories = z.object({
+  body: z.object({
+    title: z.string({
+      required_error: "title is required"
+    })
+  })
+})
+
 export const categoriesValidation = {
-  createCategories
+  createCategories,
+  updateCategories
 }

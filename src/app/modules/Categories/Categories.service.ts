@@ -79,7 +79,28 @@ const getAllCategoriesFromDB = async (
 }
 
 
+const updateIntoDB = async (id: string, payload: Partial<Categories>): Promise<Categories> => {
+  const result = await prisma.categories.update({
+    where: {
+      id
+    },
+    data: payload
+  })
+  return result;
+}
+
+const deleteFromDB = async (id: string): Promise<Categories> => {
+  const result = await prisma.categories.delete({
+    where: {
+      id
+    }
+  })
+  return result;
+}
+
 export const CategoriesService = {
   createCategories,
-  getAllCategoriesFromDB
+  getAllCategoriesFromDB,
+  updateIntoDB,
+  deleteFromDB
 }

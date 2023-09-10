@@ -29,7 +29,32 @@ const getAllCategoriesFromDB = catchAsync(async (req: Request, res: Response) =>
   })
 })
 
+const updateIntoDB = catchAsync(async(req: Request, res: Response) => {
+  const {id} = req.params;
+  const payload = req.body;
+  const result = await CategoriesService.updateIntoDB(id, payload);
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+        success: true,
+        message: 'Category updated successfully',
+        data: result
+  })
+})
+
+const deleteFromDB = catchAsync(async (req: Request, res: Response) => {
+  const {id} = req.params;
+  const result = await CategoriesService.deleteFromDB(id);
+  sendResponse(res, {
+        statusCode: httpStatus.OK,
+        success: true,
+        message: 'Category deleted successfully',
+        data: result
+    });
+})
+
 export const CategoriesController = {
   createCategories,
-  getAllCategoriesFromDB
+  getAllCategoriesFromDB,
+  updateIntoDB,
+  deleteFromDB
 }

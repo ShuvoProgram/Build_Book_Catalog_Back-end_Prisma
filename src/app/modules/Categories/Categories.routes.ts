@@ -11,4 +11,8 @@ router.post('/', auth(ENUM_USER_ROLE.ADMIN), validateRequest(categoriesValidatio
 
 router.get('/', CategoriesController.getAllCategoriesFromDB);
 
+router.patch('/:id', auth(ENUM_USER_ROLE.ADMIN), validateRequest(categoriesValidation.updateCategories), CategoriesController.updateIntoDB )
+
+router.delete('/:id', auth(ENUM_USER_ROLE.ADMIN), CategoriesController.deleteFromDB);
+
 export const categoriesRoutes = router;
