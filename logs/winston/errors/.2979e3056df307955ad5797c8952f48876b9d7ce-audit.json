@@ -24,6 +24,16 @@
             "date": 1694350900549,
             "name": "C:\\Next Level Development\\Mission-7\\Book_Catalog_Prisma_Assignment-2\\logs\\winston\\errors\\phu-2023-10-09-19-error.log",
             "hash": "3a1c18022f081be807474c079980492c40d12c417662448cad9923979acdcce0"
+        },
+        {
+            "date": 1694359166031,
+            "name": "C:\\Next Level Development\\Mission-7\\Book_Catalog_Prisma_Assignment-2\\logs\\winston\\errors\\phu-2023-10-09-21-error.log",
+            "hash": "4933d562ee4d070fd7f5d1b1bf24842f94c35a88fc97e111eef924c02229da78"
+        },
+        {
+            "date": 1694363575536,
+            "name": "C:\\Next Level Development\\Mission-7\\Book_Catalog_Prisma_Assignment-2\\logs\\winston\\errors\\phu-2023-10-09-22-error.log",
+            "hash": "2a05c907adf7018521ff76812513da3431e5d3f6e3bf1ba1b3cc07fc130b58c1"
         }
     ],
     "hashType": "sha256"
