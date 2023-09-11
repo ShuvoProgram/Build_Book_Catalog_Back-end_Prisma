@@ -44,6 +44,11 @@
             "date": 1694412298230,
             "name": "C:\\Next Level Development\\Mission-7\\Book_Catalog_Prisma_Assignment-2\\logs\\winston\\errors\\phu-2023-11-09-12-error.log",
             "hash": "4eb579a3bfe802477a0502b7917cbc689af914bb083157ad0ca8118db14ac9fc"
+        },
+        {
+            "date": 1694415769069,
+            "name": "C:\\Next Level Development\\Mission-7\\Book_Catalog_Prisma_Assignment-2\\logs\\winston\\errors\\phu-2023-11-09-13-error.log",
+            "hash": "35ff846bdf3c8897fa66af630b1f26e7026877d38f35365a49c0d029770d17ae"
         }
     ],
     "hashType": "sha256"
