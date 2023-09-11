@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import jwt, { JwtPayload, Secret } from 'jsonwebtoken';
 import config from '../config';
 const secret: string = config.jwt.secret || '';
@@ -22,8 +23,28 @@ const verifyToken = (token: string, secret: Secret): JwtPayload => {
   return jwt.verify(token, secret) as JwtPayload;
 };
 
+const getUserRoleFromToken = (token: string): string | null => {
+  try {
+    const decodedToken: any = jwt.verify(token, secret);
+    return decodedToken.role || null;
+  } catch (error) {
+    return null;
+  }
+};
+
+const getUserIdFromToken = (token: string): string | null => {
+  try {
+    const decodedToken: any = jwt.verify(token, secret);
+    return decodedToken.userId || null;
+  } catch (error) {
+    return null;
+  }
+}
+
 export const jwtHelpers = {
   createToken,
   generateRefreshToken,
   verifyToken,
+  getUserRoleFromToken,
+  getUserIdFromToken
 };
