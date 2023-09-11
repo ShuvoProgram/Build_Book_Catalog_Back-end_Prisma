@@ -1,18 +1,18 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Order } from "@prisma/client";
 import prisma from "../../../shared/prisma";
-import { OrderCreateInput } from "./order.interface";
 import ApiError from "../../../errors/ApiError";
 import httpStatus from "http-status";
 
 export const OrderService = {
-  createOrder: async (orderData: OrderCreateInput): Promise<Order> => {
+  createOrder: async (orderData: any): Promise<Order | null> => {
     try {
       const createdOrder = await prisma.order.create({
         data: orderData
       });
       return createdOrder;
     } catch (error) {
+      console.log(error)
       throw new ApiError(httpStatus.INTERNAL_SERVER_ERROR, "Failed to create an order");
     }
   },
