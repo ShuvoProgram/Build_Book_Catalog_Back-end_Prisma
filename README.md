@@ -4,7 +4,7 @@ This robust backend API powers the Book Catalog application, implementing custom
 
 ## Live Link
 
-[Live Link to the API](https://catelog-book.vercel.app/api/v1/)
+[Live Link to the API](https://book-catalog-backend-topaz.vercel.app/api/v1/)
 
 
 ![ERD Diagram](https://i.ibb.co/dQshCfm/ERD-BOOK-CATELOG.png)
