@@ -11,16 +11,18 @@ datasource db {
 }
 
 model User {
-  id         String   @id @default(uuid())
-  name       String
-  email      String
-  password   String
-  role       Role
-  contactNo  String
-  address    String
-  profileImg String
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
+  id              String            @id @default(uuid())
+  name            String
+  email           String
+  password        String
+  role            Role
+  contactNo       String
+  address         String
+  profileImg      String
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+  Order           Order[]
+  ReviewAndRating ReviewAndRating[]
 
   @@map("users")
 }
@@ -30,11 +32,53 @@ model Categories {
   title     String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  Book      Book[]
 
   @@map("categories")
+}
+
+model Book {
+  id              String            @id @default(uuid())
+  title           String
+  author          String
+  price           Float
+  genre           String
+  publicationDate DateTime
+  categoryId      String
+  Category        Categories        @relation(fields: [categoryId], references: [id])
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+  ReviewAndRating ReviewAndRating[]
+
+  @@map("books")
+}
+
+model Order {
+  id           String       @id @default(uuid())
+  orderedBooks Json
+  status       OrderStatus? @default(pending)
+  userId       String
+  user         User         @relation(fields: [userId], references: [id])
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+}
+
+model ReviewAndRating {
+  id     String @id @default(uuid())
+  review String
+  rating Int
+  userId String
+  bookId String
+  user   User   @relation(fields: [userId], references: [id])
+  book   Book   @relation(fields: [bookId], references: [id])
 }
 
 enum Role {
   admin
   customer
+}
+
+enum OrderStatus {
+  pending
+  delivered
 }
