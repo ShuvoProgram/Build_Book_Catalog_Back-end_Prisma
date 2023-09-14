@@ -16,6 +16,12 @@ export const BookService = {
     const existingBook = await prisma.book.findFirst({
       where: {title: bookData.title}
     })
+    const existingCategory = await prisma.categories.findUnique({
+      where: {id: bookData.categoryId}
+    })
+    if(!existingCategory) {
+      throw new ApiError(httpStatus.BAD_REQUEST, "Category doesn't exist")
+    }
     if(existingBook) {
       throw new ApiError(httpStatus.BAD_REQUEST, "Books Already Exist")
     }

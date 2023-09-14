@@ -18,7 +18,7 @@ const signup: RequestHandler = catchAsync(async (req: Request, res: Response) =>
 const signin = catchAsync(async (req: Request, res: Response) => {
   const {...loginData} = req.body;
   const result = await authService.signin(loginData);
-  const {access_token, ...others} = result;
+  const {access_token} = result;
    const cookieOptions = {
     secure: config.env === 'production',
     httpOnly: true,
@@ -31,8 +31,7 @@ const signin = catchAsync(async (req: Request, res: Response) => {
     success: true,
     message: 'User signin successfully!',
     data: {
-      access_token,
-      others
+      access_token
     },
   })
 })

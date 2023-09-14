@@ -6,6 +6,8 @@ import { IUserFilterRequest } from "./user.interface";
 import { paginationHelpers } from "../../../helpers/paginationHelper";
 import { userSearchAbleFields } from "./user.constants";
 import prisma from "../../../shared/prisma";
+import ApiError from "../../../errors/ApiError";
+import httpStatus from "http-status";
 
 const getAllUserFromDB = async (
   filters: IUserFilterRequest,
@@ -69,6 +71,9 @@ const getByIdFromDB = async(id: string): Promise<User | null> => {
       id
     }
   })
+  if(!result?.email){
+    throw new ApiError(httpStatus.NOT_FOUND, "User Does Not Exist")
+  }
   return result;
 }
 
