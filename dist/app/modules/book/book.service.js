@@ -26,6 +26,12 @@ exports.BookService = {
         const existingBook = yield prisma_1.default.book.findFirst({
             where: { title: bookData.title }
         });
+        const existingCategory = yield prisma_1.default.categories.findUnique({
+            where: { id: bookData.categoryId }
+        });
+        if (!existingCategory) {
+            throw new ApiError_1.default(http_status_1.default.BAD_REQUEST, "Category doesn't exist");
+        }
         if (existingBook) {
             throw new ApiError_1.default(http_status_1.default.BAD_REQUEST, "Books Already Exist");
         }

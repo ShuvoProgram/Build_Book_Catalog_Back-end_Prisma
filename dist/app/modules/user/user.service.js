@@ -27,6 +27,8 @@ exports.UserService = void 0;
 const paginationHelper_1 = require("../../../helpers/paginationHelper");
 const user_constants_1 = require("./user.constants");
 const prisma_1 = __importDefault(require("../../../shared/prisma"));
+const ApiError_1 = __importDefault(require("../../../errors/ApiError"));
+const http_status_1 = __importDefault(require("http-status"));
 const getAllUserFromDB = (filters, options) => __awaiter(void 0, void 0, void 0, function* () {
     const { limit, page, skip } = paginationHelper_1.paginationHelpers.calculatePagination(options);
     const { searchTerm } = filters, filtersData = __rest(filters, ["searchTerm"]);
@@ -79,6 +81,9 @@ const getByIdFromDB = (id) => __awaiter(void 0, void 0, void 0, function* () {
             id
         }
     });
+    if (!(result === null || result === void 0 ? void 0 : result.email)) {
+        throw new ApiError_1.default(http_status_1.default.NOT_FOUND, "User Does Not Exist");
+    }
     return result;
 });
 const updateIntoDB = (id, payload) => __awaiter(void 0, void 0, void 0, function* () {

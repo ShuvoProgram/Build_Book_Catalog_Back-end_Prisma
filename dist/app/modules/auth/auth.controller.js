@@ -41,7 +41,7 @@ const signup = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0,
 const signin = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const loginData = __rest(req.body, []);
     const result = yield auth_service_1.authService.signin(loginData);
-    const { access_token } = result, others = __rest(result, ["access_token"]);
+    const { access_token } = result;
     const cookieOptions = {
         secure: config_1.default.env === 'production',
         httpOnly: true,
@@ -52,8 +52,7 @@ const signin = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0,
         success: true,
         message: 'User signin successfully!',
         data: {
-            access_token,
-            others
+            access_token
         },
     });
 }));
