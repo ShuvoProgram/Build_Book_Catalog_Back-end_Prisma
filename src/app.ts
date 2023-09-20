@@ -15,12 +15,12 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use('/', async(req: Request, res: Response) => {
-  res.send("Welcome To Back Catalog Backend")
-})
 
 app.use('/api/v1', routes);
 
+  app.use('/', async(req: Request, res: Response) => {
+  res.send("Welcome To Back Catalog Backend")
+})
 
 //global error handler
 app.use(globalErrorHandler);
