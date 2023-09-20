@@ -32,14 +32,6 @@ const signin = catchAsync(async (req: Request, res: Response) => {
         message: 'User sign in successfully',
         token: access_token,
       });
-  // sendResponse(res, {
-  //   statusCode: 200,
-  //   success: true,
-  //   message: 'User sign in successfully!',
-  //   data: {
-  //     access_token
-  //   },
-  // })
 })
 
 export const AuthController = {

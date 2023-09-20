@@ -47,14 +47,20 @@ const signin = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0,
         httpOnly: true,
     };
     res.cookie('accessToken', access_token, cookieOptions);
-    (0, sendResponse_1.default)(res, {
-        statusCode: 200,
+    res.status(http_status_1.default.OK).json({
         success: true,
-        message: 'User signin successfully!',
-        data: {
-            access_token
-        },
+        statusCode: http_status_1.default.OK,
+        message: 'User sign in successfully',
+        token: access_token,
     });
+    // sendResponse(res, {
+    //   statusCode: 200,
+    //   success: true,
+    //   message: 'User sign in successfully!',
+    //   data: {
+    //     access_token
+    //   },
+    // })
 }));
 exports.AuthController = {
     signup,
